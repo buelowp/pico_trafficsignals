@@ -24,8 +24,8 @@ Intersection::Intersection(Signal *primary, Signal *opposed)
     m_opposed = opposed;
 
     m_redTimeout = 30000;
-    m_yellowTimeout = 4000;
-    m_greenTimeout = 26000;
+    m_yellowTimeout = 3000;
+    m_greenTimeout = 27000;
 
     m_primary->stateChange(Signal::SignalState::RED);
     m_opposed->stateChange(Signal::SignalState::GREEN);
@@ -40,6 +40,11 @@ Intersection::Intersection(Signal *primary, Signal *opposed)
 Intersection::~Intersection()
 {}
 
+/**
+ * @brief The forever loop for this function. Sets the
+ * direction and the color as the timer counts down
+ * 
+ */
 void Intersection::run()
 {
     while (1) {

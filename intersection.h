@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "pico/stdlib.h"
 #include "pico/sync.h"
 #include "hardware/gpio.h"
+#include "pico/binary_info.h"
 
 #include "signal.h"
 

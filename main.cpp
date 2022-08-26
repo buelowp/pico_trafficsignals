@@ -29,9 +29,8 @@ int main()
     bi_decl(bi_program_description("Control common anode automobile traffic signals using a Pico"));
 
     stdio_init_all();
-
-    Signal primary(20, 18, 16);
-    Signal opposed(28, 27, 26);
+    Signal primary(7, 8, 9);
+    Signal opposed(11, 12, 13);
     Intersection intersection(&primary, &opposed);
 
     intersection.run();

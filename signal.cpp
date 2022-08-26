@@ -18,6 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "signal.h"
 
+/**
+ * @brief Sets the corect LED on when the timer expires
+ * 
+ * @param id The pico alarm ID
+ * @param user_data Unused void * to data we might pass in
+ * @return int64_t An unused return value which could be read by the timer originator
+ */
 static int64_t delay_complete(alarm_id_t id, void *user_data)
 {
     int pin = (intptr_t)user_data;
@@ -55,6 +62,11 @@ Signal::Signal(Signal &other)
 Signal::~Signal()
 {}
 
+/**
+ * @brief Sets the intersection side to the correct state
+ * 
+ * @param state The SignalState enum state to enforce
+ */
 void Signal::stateChange(SignalState state)
 {
     switch (state) {
@@ -77,6 +89,10 @@ void Signal::stateChange(SignalState state)
     m_state = state;
 }
 
+/**
+ * @brief Provides a small incandescent effect of all lights off briefly
+ * @fn void Signal::stateChange()
+ */
 void Signal::stateChange()
 {
     switch (m_state) {
